@@ -37,5 +37,10 @@ module WonderfulPostApp
     end
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # 日本語化設定
+    config.time_zone = 'Asia/Tokyo'
+    config.i18n.default_locale = :ja
+
   end
 end

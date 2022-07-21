@@ -6,7 +6,6 @@ class ArticlesController < ApplicationController
     end
 
     def show
-
     end
 
     def new
@@ -18,20 +17,18 @@ class ArticlesController < ApplicationController
         @article = Article.new( article_params )
         # インスタンスを DB に保存する
         if @article.save
-            redirect_to @article, notice: "Article was successfully created."
+            redirect_to @article, notice: "#{t('activerecord.models.article')}を作成しました。"
         else
             render :new, status: :unprocessable_entity
         end
     end
 
     def edit
-
     end
 
     def update
-
         if @article.update(article_params)
-            redirect_to @article, notice: "Article was successfully updated."
+            redirect_to @article, notice: "#{t('activerecord.models.article')}を更新しました。"
         else
             render :edit, status: :unprocessable_entity
         end
@@ -40,7 +37,7 @@ class ArticlesController < ApplicationController
     def destroy
         @article = Article.find(params[:id])
         if @article.destroy
-            redirect_to @article, notice: "Article was successfully destroyed."
+            redirect_to @article, notice: "#{t('activerecord.models.article')}を削除しました。"
         else
             render :edit, status: :unprocessable_entity
         end
